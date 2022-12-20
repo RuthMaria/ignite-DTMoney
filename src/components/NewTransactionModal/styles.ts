@@ -102,6 +102,14 @@ export const TransactionTypeButton = styled(
         : props.theme['red-300']};
   }
 
+  &:focus{
+    box-shadow: 0 0 0 1px ${(props) =>
+      props.variant === 'income'
+        ? props.theme['green-500']
+        : props.theme['red-500']};
+      };
+  }
+
   &[data-state='unchecked']:hover {
     transition: background-color 0.2s;
     background: ${(props) => props.theme['gray-600']};
