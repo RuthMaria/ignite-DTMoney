@@ -34,15 +34,11 @@ Access this layout in [Figma](<https://www.figma.com/file/YXhRS9SvRG7MuYnF3vI4OJ
 
 ## ⚒️ Technologies Used
 
-- Zod
-- UUID
 - HTML5
-- Immer
 - React.js
+- Radix-ui
 - TypeScript
-- API viacep
 - Phosphor Icons
-- React hook form
 - Styled components
 
 <a id="run"></a><br>
