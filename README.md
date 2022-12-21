@@ -38,6 +38,7 @@ Access this layout in [Figma](<https://www.figma.com/file/YXhRS9SvRG7MuYnF3vI4OJ
 - React.js
 - Radix-ui
 - TypeScript
+- JSON-server
 - Phosphor Icons
 - Styled components
 
