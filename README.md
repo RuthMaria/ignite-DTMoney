@@ -34,6 +34,7 @@ Access this layout in [Figma](<https://www.figma.com/file/YXhRS9SvRG7MuYnF3vI4OJ
 
 ## ⚒️ Technologies Used
 
+- Intl
 - HTML5
 - React.js
 - Radix-ui
