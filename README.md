@@ -78,6 +78,12 @@ or
 npm run dev
 ```
 
+- Run the json-server
+
+```
+npm run dev:server
+```
+
 <br>
 
 ## 🎯 How to contribute
