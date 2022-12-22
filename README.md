@@ -34,6 +34,7 @@ Access this layout in [Figma](<https://www.figma.com/file/YXhRS9SvRG7MuYnF3vI4OJ
 
 ## ⚒️ Technologies Used
 
+- Zod
 - Intl
 - HTML5
 - React.js
@@ -41,6 +42,7 @@ Access this layout in [Figma](<https://www.figma.com/file/YXhRS9SvRG7MuYnF3vI4OJ
 - TypeScript
 - JSON-server
 - Phosphor Icons
+- React hook form
 - Styled components
 
 <a id="run"></a><br>
