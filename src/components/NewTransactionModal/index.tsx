@@ -10,8 +10,7 @@ import {
   TransactionType,
   TransactionTypeButton,
 } from './styles';
-import { api } from '../../lib/axios';
-import { useContext } from 'react';
+import { useContextSelector } from 'use-context-selector';
 import { TransactionsContext } from '../../contexts/TransactionsContext';
 
 const newTransactionFormSchema = z.object({
@@ -24,7 +23,17 @@ const newTransactionFormSchema = z.object({
 type NewTransactionFormInputs = z.infer<typeof newTransactionFormSchema>;
 
 export const NewTransactionModal = () => {
-  const { createTransaction } = useContext(TransactionsContext);
+  /*
+  useContextSelector recebe dois parâmetros:
+  1. O contexto
+  2. uma função callback que fica observando se as informações do return (createTransaction) mudaram para evitar renderizações desnecessárias
+  */
+  const createTransaction = useContextSelector(
+    TransactionsContext,
+    (context) => {
+      return context.createTransaction;
+    }
+  );
 
   const {
     reset,
