@@ -10,9 +10,12 @@ import {
   TransactionType,
   TransactionTypeButton,
 } from './styles';
+import { api } from '../../lib/axios';
+import { useContext } from 'react';
+import { TransactionsContext } from '../../contexts/TransactionsContext';
 
 const newTransactionFormSchema = z.object({
-  decription: z.string(),
+  description: z.string(),
   price: z.number(),
   category: z.string(),
   type: z.enum(['income', 'outcome']),
@@ -21,7 +24,10 @@ const newTransactionFormSchema = z.object({
 type NewTransactionFormInputs = z.infer<typeof newTransactionFormSchema>;
 
 export const NewTransactionModal = () => {
+  const { createTransaction } = useContext(TransactionsContext);
+
   const {
+    reset,
     control,
     register,
     handleSubmit,
@@ -34,7 +40,18 @@ export const NewTransactionModal = () => {
   });
 
   const handleCreateNewTransaction = async (data: NewTransactionFormInputs) => {
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    const { description, price, category, type } = data;
+
+    const newTransaction = {
+      description,
+      price,
+      category,
+      type,
+    };
+
+    createTransaction(newTransaction);
+
+    reset();
   };
 
   return (
@@ -53,7 +70,7 @@ export const NewTransactionModal = () => {
             type="text"
             placeholder="Descrição"
             required
-            {...register('decription')}
+            {...register('description')}
           />
           <input
             type="number"
