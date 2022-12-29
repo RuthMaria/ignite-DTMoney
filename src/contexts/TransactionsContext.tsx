@@ -35,6 +35,8 @@ export const TransactionsProvider = ({
 }: TransactionsProviderProps) => {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
 
+  // useCallback retorna uma função memorizada, só a recalcula se o seu array de dependências mudar
+
   const fetchTransactions = useCallback(async (query?: string) => {
     const response = await api.get('transactions', {
       params: {
@@ -49,7 +51,7 @@ export const TransactionsProvider = ({
 
   useEffect(() => {
     fetchTransactions();
-  }, []);
+  }, [fetchTransactions]);
 
   const createTransaction = useCallback(
     async (data: CreateTransactionInput) => {
