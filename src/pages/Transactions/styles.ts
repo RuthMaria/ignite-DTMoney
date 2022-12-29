@@ -22,15 +22,24 @@ export const TransactionsTable = styled.table`
       border-bottom-left-radius: 6px;
     }
 
-    svg:hover {
-      color: ${(props) => props.theme['red-300']};
-      transition: color 0.2s;
-      cursor: pointer;
-    }
-
     &:last-child {
       border-top-right-radius: 6px;
       border-bottom-right-radius: 6px;
+      display: flex;
+      gap: 0.5rem;
+      padding: 1.4rem;
+
+      > svg:hover {
+        color: ${(props) => props.theme['red-300']};
+        transition: color 0.2s;
+        cursor: pointer;
+      }
+
+      svg + svg:hover {
+        color: ${(props) => props.theme['green-300']};
+        transition: color 0.2s;
+        cursor: pointer;
+      }
     }
   }
 `;

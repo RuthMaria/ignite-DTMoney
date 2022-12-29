@@ -1,17 +1,19 @@
 import React from 'react';
+import * as Dialog from '@radix-ui/react-dialog';
+import { Trash, NotePencil } from 'phosphor-react';
+import { useContextSelector } from 'use-context-selector';
 import { Header } from '../../components/Header';
 import { Summary } from '../../components/Summary';
 import { SearchForm } from './components/SearchForm';
-import { useContextSelector } from 'use-context-selector';
-import { TransactionsContext } from '../../contexts/TransactionsContext';
 import { dateFormatter, priceFormatter } from '../../utils/formatter';
-import { Trash } from 'phosphor-react';
+import { TransactionsContext } from '../../contexts/TransactionsContext';
+import { NewTransactionModal } from '../../components/NewTransactionModal';
+
 import {
   PriceHighlight,
   TransactionsTable,
   TransactionsContainer,
 } from './styles';
-import { api } from '../../lib/axios';
 
 export const Transactions: React.FC = () => {
   const transactions = useContextSelector(TransactionsContext, (context) => {
@@ -56,6 +58,13 @@ export const Transactions: React.FC = () => {
                     <Trash
                       onClick={() => handleDeleteTransaction(transaction.id)}
                     />
+                    <Dialog.Root>
+                      <Dialog.Trigger asChild>
+                        <NotePencil />
+                      </Dialog.Trigger>
+
+                      <NewTransactionModal transaction={transaction} />
+                    </Dialog.Root>
                   </td>
                 </tr>
               );

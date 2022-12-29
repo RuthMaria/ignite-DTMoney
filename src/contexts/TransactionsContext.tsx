@@ -9,6 +9,7 @@ interface Transaction {
   price: number;
   category: string;
   createdAt: string;
+  updatedAt: string;
 }
 
 interface CreateTransactionInput {
@@ -22,6 +23,7 @@ interface TransactionContextType {
   transactions: Transaction[];
   fetchTransactions: (query?: string) => Promise<void>;
   createTransaction: (data: CreateTransactionInput) => Promise<void>;
+  updateTransaction: (data: Transaction) => Promise<void>;
   deleteTransaction: (id: number) => Promise<void>;
 }
 
@@ -64,6 +66,7 @@ export const TransactionsProvider = ({
         category,
         type,
         createdAt: new Date(),
+        updatedAt: new Date(),
       };
 
       const response = await api.post('transactions', newTransaction);
@@ -72,6 +75,23 @@ export const TransactionsProvider = ({
     },
     []
   );
+
+  const updateTransaction = useCallback(async (data: Transaction) => {
+    const { description, price, category, type, id, createdAt } = data;
+
+    const transaction = {
+      description,
+      price,
+      category,
+      type,
+      createdAt,
+      updatedAt: new Date(),
+    };
+
+    await api.put(`transactions/${id}`, transaction);
+
+    fetchTransactions();
+  }, []);
 
   const deleteTransaction = async (id: number) => {
     await api.delete(`transactions/${id}`);
@@ -85,6 +105,7 @@ export const TransactionsProvider = ({
         createTransaction,
         fetchTransactions,
         deleteTransaction,
+        updateTransaction,
       }}
     >
       {children}

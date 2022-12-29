@@ -1,8 +1,12 @@
 import * as z from 'zod';
+import { useEffect } from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
 import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useContextSelector } from 'use-context-selector';
 import { ArrowCircleDown, ArrowCircleUp, X } from 'phosphor-react';
+import { TransactionsContext } from '../../contexts/TransactionsContext';
+
 import {
   CloseButton,
   Content,
@@ -10,8 +14,21 @@ import {
   TransactionType,
   TransactionTypeButton,
 } from './styles';
-import { useContextSelector } from 'use-context-selector';
-import { TransactionsContext } from '../../contexts/TransactionsContext';
+
+interface Transaction {
+  id: number;
+  description: string;
+  type: 'income' | 'outcome';
+  price: number;
+  category: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+interface NewTransactionModalProps {
+  transaction?: Transaction;
+  //setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
 const newTransactionFormSchema = z.object({
   description: z.string(),
@@ -22,7 +39,10 @@ const newTransactionFormSchema = z.object({
 
 type NewTransactionFormInputs = z.infer<typeof newTransactionFormSchema>;
 
-export const NewTransactionModal = () => {
+export const NewTransactionModal = ({
+  transaction,
+}: // setOpen,
+NewTransactionModalProps) => {
   /*
   useContextSelector recebe dois parâmetros:
   1. O contexto
@@ -35,18 +55,34 @@ export const NewTransactionModal = () => {
     }
   );
 
+  const updateTransaction = useContextSelector(
+    TransactionsContext,
+    (context) => {
+      return context.updateTransaction;
+    }
+  );
+
   const {
     reset,
     control,
     register,
+    setValue,
     handleSubmit,
     formState: { isSubmitting },
   } = useForm<NewTransactionFormInputs>({
     resolver: zodResolver(newTransactionFormSchema),
     defaultValues: {
-      type: 'income',
+      type: transaction?.type || 'income',
     },
   });
+
+  useEffect(() => {
+    if (transaction) {
+      setValue('description', transaction.description);
+      setValue('price', transaction.price);
+      setValue('category', transaction.category);
+    }
+  }, []);
 
   const handleCreateNewTransaction = async (data: NewTransactionFormInputs) => {
     const { description, price, category, type } = data;
@@ -63,18 +99,40 @@ export const NewTransactionModal = () => {
     reset();
   };
 
+  const handleUpdateTransaction = async (data: NewTransactionFormInputs) => {
+    const { description, price, category, type } = data;
+
+    const editTransaction = {
+      id: transaction?.id || 1,
+      description,
+      type,
+      price,
+      category,
+      createdAt: transaction?.createdAt || 'lorem ipsom',
+      updatedAt: transaction?.createdAt || 'lorem ipsom',
+    };
+
+    updateTransaction(editTransaction);
+
+    reset();
+  };
+
   return (
     <Dialog.Portal>
       <Overlay />
 
       <Content>
-        <Dialog.Title>Nova Transação</Dialog.Title>
+        <Dialog.Title>{transaction ? 'Editar' : 'Nova'} transação</Dialog.Title>
 
         <CloseButton>
           <X size={24} />
         </CloseButton>
 
-        <form onSubmit={handleSubmit(handleCreateNewTransaction)}>
+        <form
+          onSubmit={handleSubmit(
+            transaction ? handleUpdateTransaction : handleCreateNewTransaction
+          )}
+        >
           <input
             type="text"
             placeholder="Descrição"
@@ -118,9 +176,10 @@ export const NewTransactionModal = () => {
           />
 
           <button type="submit" disabled={isSubmitting}>
-            Cadastrar
+            {transaction ? 'Atualizar' : 'Cadastrar'}
           </button>
         </form>
+        <Dialog.Close />
       </Content>
     </Dialog.Portal>
   );
