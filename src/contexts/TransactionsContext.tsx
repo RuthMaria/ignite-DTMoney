@@ -21,7 +21,11 @@ interface CreateTransactionInput {
 
 interface TransactionContextType {
   transactions: Transaction[];
-  fetchTransactions: (query?: string) => Promise<void>;
+  fetchTransactions: (
+    query?: string,
+    page?: number,
+    limit?: number
+  ) => Promise<void>;
   createTransaction: (data: CreateTransactionInput) => Promise<void>;
   updateTransaction: (data: Transaction) => Promise<void>;
   deleteTransaction: (id: number) => Promise<void>;
@@ -40,17 +44,21 @@ export const TransactionsProvider = ({
 
   // useCallback retorna uma função memorizada, só a recalcula se o seu array de dependências mudar
 
-  const fetchTransactions = useCallback(async (query?: string) => {
-    const response = await api.get('transactions', {
-      params: {
-        _sort: 'createdAt',
-        _order: 'desc',
-        q: query,
-      },
-    });
-
-    setTransactions(response.data);
-  }, []);
+  const fetchTransactions = useCallback(
+    async (query?: string, page?: number, limit?: number) => {
+      const response = await api.get('transactions', {
+        params: {
+          _page: page,
+          _limit: limit,
+          _sort: 'createdAt',
+          _order: 'desc',
+          q: query,
+        },
+      });
+      setTransactions(response.data);
+    },
+    []
+  );
 
   useEffect(() => {
     fetchTransactions();

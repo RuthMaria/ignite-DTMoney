@@ -46,13 +46,175 @@
       "id": 5
     },
     {
-      "description": "Pastel",
+      "description": "Coxinha",
       "price": 5,
       "category": "Alimentação",
       "type": "outcome",
-      "createdAt": "2022-12-26T21:40:11.197Z",
+      "createdAt": "2022-12-27T21:40:11.197Z",
       "updatedAt": "2022-12-29T22:20:50.671Z",
       "id": 6
+    },
+    {
+      "id": 7,
+      "description": "Desenvolvimento de site",
+      "type": "income",
+      "category": "Venda",
+      "price": 14000,
+      "createdAt": "2022-07-28T19:36:44.505Z",
+      "updatedAt": "2022-07-29T19:36:44.505Z"
+    },
+    {
+      "id": 8,
+      "description": "Batatinha frita",
+      "type": "outcome",
+      "category": "Alimentação",
+      "price": 60,
+      "createdAt": "2022-07-29T19:30:44.505Z",
+      "updatedAt": "2022-07-29T19:30:44.505Z"
+    },
+    {
+      "id": 9,
+      "description": "GoStack Rocketseat",
+      "type": "outcome",
+      "category": "Educação",
+      "price": 1980,
+      "createdAt": "2022-07-30T19:24:44.505Z",
+      "updatedAt": "2022-07-29T19:24:44.505Z"
+    },
+    {
+      "description": "Desenvolvimento mobile",
+      "price": 10000,
+      "category": "venda",
+      "type": "income",
+      "createdAt": "2022-12-31T21:09:51.636Z",
+      "updatedAt": "2022-12-26T21:09:51.636Z",
+      "id": 10
+    },
+    {
+      "description": "Iogurte de ameixa",
+      "price": 4,
+      "category": "alimentação",
+      "type": "outcome",
+      "createdAt": "2022-11-26T21:39:45.975Z",
+      "updatedAt": "2022-12-26T21:39:45.975Z",
+      "id": 11
+    },
+    {
+      "description": "Biscoito",
+      "price": 5,
+      "category": "Alimentação",
+      "type": "outcome",
+      "createdAt": "2022-10-26T21:40:11.197Z",
+      "updatedAt": "2022-12-29T22:20:50.671Z",
+      "id": 12
+    },
+    {
+      "id": 13,
+      "description": "Curso de React",
+      "type": "outcome",
+      "category": "Educação",
+      "price": 14000,
+      "createdAt": "2022-09-29T19:36:44.505Z",
+      "updatedAt": "2022-07-29T19:36:44.505Z"
+    },
+    {
+      "id": 14,
+      "description": "Chocolate",
+      "type": "outcome",
+      "category": "Alimentação",
+      "price": 60,
+      "createdAt": "2022-08-29T19:30:44.505Z",
+      "updatedAt": "2022-07-29T19:30:44.505Z"
+    },
+    {
+      "id": 15,
+      "description": "Launchbase Rocketseat",
+      "type": "outcome",
+      "category": "Educação",
+      "price": 1980,
+      "createdAt": "2022-06-29T19:24:44.505Z",
+      "updatedAt": "2022-07-29T19:24:44.505Z"
+    },
+    {
+      "description": "Venda do sofá",
+      "price": 10000,
+      "category": "venda",
+      "type": "income",
+      "createdAt": "2022-05-26T21:09:51.636Z",
+      "updatedAt": "2022-12-26T21:09:51.636Z",
+      "id": 16
+    },
+    {
+      "description": "Iogurte de pêssego",
+      "price": 4,
+      "category": "alimentação",
+      "type": "outcome",
+      "createdAt": "2022-04-26T21:39:45.975Z",
+      "updatedAt": "2022-12-26T21:39:45.975Z",
+      "id": 17
+    },
+    {
+      "description": "Lasanha",
+      "price": 5,
+      "category": "Alimentação",
+      "type": "outcome",
+      "createdAt": "2022-03-26T21:40:11.197Z",
+      "updatedAt": "2022-12-29T22:20:50.671Z",
+      "id": 18
+    },
+    {
+      "id": 19,
+      "description": "Venda do armário",
+      "type": "income",
+      "category": "Venda",
+      "price": 14000,
+      "createdAt": "2022-02-29T19:36:44.505Z",
+      "updatedAt": "2022-07-29T19:36:44.505Z"
+    },
+    {
+      "id": 20,
+      "description": "Frutas",
+      "type": "outcome",
+      "category": "Alimentação",
+      "price": 60,
+      "createdAt": "2022-01-29T19:30:44.505Z",
+      "updatedAt": "2022-07-29T19:30:44.505Z"
+    },
+    {
+      "id": 21,
+      "description": "Explorer Rocketseat",
+      "type": "outcome",
+      "category": "Educação",
+      "price": 1980,
+      "createdAt": "2022-01-28T19:24:44.505Z",
+      "updatedAt": "2022-07-29T19:24:44.505Z"
+    },
+    {
+      "description": "Curso de Angular",
+      "price": 10000,
+      "category": "venda",
+      "type": "income",
+      "createdAt": "2022-01-25T21:09:51.636Z",
+      "updatedAt": "2022-12-26T21:09:51.636Z",
+      "id": 22
+    },
+    {
+      "description": "Discover Rocketseat",
+      "price": 4,
+      "category": "Educação",
+      "type": "outcome",
+      "createdAt": "2022-01-24T21:39:45.975Z",
+      "updatedAt": "2022-12-26T21:39:45.975Z",
+      "id": 23
+    },
+    {
+      "description": "Arroz",
+      "price": 5,
+      "category": "Alimentação",
+      "type": "outcome",
+      "createdAt": "2022-12-12T21:40:11.197Z",
+      "updatedAt": "2022-12-29T22:20:50.671Z",
+      "id": 24
     }
   ]
 }

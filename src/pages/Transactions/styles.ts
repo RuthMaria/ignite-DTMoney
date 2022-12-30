@@ -7,6 +7,13 @@ export const TransactionsContainer = styled.main`
   padding: 0 1.5rem;
 `;
 
+export const Div = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
+
 export const TransactionsTable = styled.table`
   width: 100%;
   border-collapse: separate; // para separar as linhas da tabela
@@ -17,6 +24,10 @@ export const TransactionsTable = styled.table`
     padding: 1.25rem 2rem;
     background: ${(props) => props.theme['gray-700']};
 
+    svg + svg {
+      margin-left: 0.1rem;
+    }
+
     &:first-child {
       border-top-left-radius: 6px;
       border-bottom-left-radius: 6px;
@@ -25,9 +36,7 @@ export const TransactionsTable = styled.table`
     &:last-child {
       border-top-right-radius: 6px;
       border-bottom-right-radius: 6px;
-      display: flex;
-      gap: 0.5rem;
-      padding: 1.4rem;
+      min-width: 7rem;
 
       > svg:hover {
         color: ${(props) => props.theme['red-300']};
