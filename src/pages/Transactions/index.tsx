@@ -17,6 +17,7 @@ import {
 } from './styles';
 import Pagination from '../../components/Pagination';
 import { api } from '../../lib/axios';
+import { RemoveTransactionModal } from '../../components/RemoveTransactionModal';
 
 export const Transactions: React.FC = () => {
   const [page, setPage] = useState(1);
@@ -45,17 +46,6 @@ export const Transactions: React.FC = () => {
     return context.transactions;
   });
 
-  const deleteTransaction = useContextSelector(
-    TransactionsContext,
-    (context) => {
-      return context.deleteTransaction;
-    }
-  );
-
-  const handleDeleteTransaction = async (id: number) => {
-    deleteTransaction(id);
-  };
-
   return (
     <div>
       <Header />
@@ -80,10 +70,14 @@ export const Transactions: React.FC = () => {
                     {dateFormatter.format(new Date(transaction.createdAt))}
                   </td>
                   <td>
-                    <Trash
-                      size={19}
-                      onClick={() => handleDeleteTransaction(transaction.id)}
-                    />
+                    <Dialog.Root>
+                      <Dialog.Trigger asChild>
+                        <Trash size={19} />
+                      </Dialog.Trigger>
+
+                      <RemoveTransactionModal transaction={transaction} />
+                    </Dialog.Root>
+
                     <Dialog.Root>
                       <Dialog.Trigger asChild>
                         <NotePencil size={19} />

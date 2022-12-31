@@ -27,7 +27,6 @@ interface Transaction {
 
 interface NewTransactionModalProps {
   transaction?: Transaction;
-  //setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const newTransactionFormSchema = z.object({
@@ -41,8 +40,7 @@ type NewTransactionFormInputs = z.infer<typeof newTransactionFormSchema>;
 
 export const NewTransactionModal = ({
   transaction,
-}: // setOpen,
-NewTransactionModalProps) => {
+}: NewTransactionModalProps) => {
   /*
   useContextSelector recebe dois parâmetros:
   1. O contexto

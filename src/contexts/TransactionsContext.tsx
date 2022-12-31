@@ -48,8 +48,8 @@ export const TransactionsProvider = ({
     async (query?: string, page?: number, limit?: number) => {
       const response = await api.get('transactions', {
         params: {
-          _page: page,
-          _limit: limit,
+          _page: page || 1,
+          _limit: limit || 3,
           _sort: 'createdAt',
           _order: 'desc',
           q: query,
