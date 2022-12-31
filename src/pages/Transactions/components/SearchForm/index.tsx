@@ -14,7 +14,11 @@ const searchFormSchema = z.object({
 
 type SearchFormInputs = z.infer<typeof searchFormSchema>;
 
-export const SearchForm: React.FC = () => {
+interface SearchFormProps {
+  hasQuery: (query: string) => void;
+}
+
+export const SearchForm: React.FC<SearchFormProps> = ({ hasQuery }) => {
   const fetchTransactions = useContextSelector(
     TransactionsContext,
     (context) => {
@@ -33,6 +37,7 @@ export const SearchForm: React.FC = () => {
   /* Funções que são disparadas por ações do usuário são precedidas pela palavra handle por convenção*/
 
   const handleSearchTransactions = async (data: SearchFormInputs) => {
+    hasQuery(data.query);
     await fetchTransactions(data.query);
   };
 

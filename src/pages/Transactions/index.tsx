@@ -22,6 +22,7 @@ import { RemoveTransactionModal } from '../../components/RemoveTransactionModal'
 export const Transactions: React.FC = () => {
   const [page, setPage] = useState(1);
   const [totalTransaction, setTotalTransaction] = useState(0);
+  const [query, setQuery] = useState('');
   const ITEMS_PER_PAGE = 3;
 
   const fetchTransactions = useContextSelector(
@@ -31,16 +32,26 @@ export const Transactions: React.FC = () => {
     }
   );
 
+  const hasQuery = (query: string) => {
+    setQuery(query);
+  };
+
   useEffect(() => {
     const loadingTransactions = async () => {
-      const response = await api.get('transactions');
+      const response = await api.get('transactions', {
+        params: {
+          _sort: 'createdAt',
+          _order: 'desc',
+          q: query,
+        },
+      });
       setTotalTransaction(response.data.length);
 
-      await fetchTransactions('', page, ITEMS_PER_PAGE);
+      await fetchTransactions(query, page, ITEMS_PER_PAGE);
     };
 
     loadingTransactions();
-  }, [page, totalTransaction]);
+  }, [page, totalTransaction, query]);
 
   const transactions = useContextSelector(TransactionsContext, (context) => {
     return context.transactions;
@@ -52,7 +63,7 @@ export const Transactions: React.FC = () => {
       <Summary />
 
       <TransactionsContainer>
-        <SearchForm />
+        <SearchForm hasQuery={hasQuery} />
         <TransactionsTable>
           <tbody>
             {transactions.map((transaction) => {

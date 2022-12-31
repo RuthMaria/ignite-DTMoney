@@ -41,7 +41,7 @@ export const TransactionsProvider = ({
   children,
 }: TransactionsProviderProps) => {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
-
+  const [hasQuery, setHasQuery] = useState(false);
   // useCallback retorna uma função memorizada, só a recalcula se o seu array de dependências mudar
 
   const fetchTransactions = useCallback(
