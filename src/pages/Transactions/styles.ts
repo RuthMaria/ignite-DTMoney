@@ -36,19 +36,8 @@ export const TransactionsTable = styled.table`
     &:last-child {
       border-top-right-radius: 6px;
       border-bottom-right-radius: 6px;
-      min-width: 7rem;
-
-      > svg:hover {
-        color: ${(props) => props.theme['red-300']};
-        transition: color 0.2s;
-        cursor: pointer;
-      }
-
-      svg + svg:hover {
-        color: ${(props) => props.theme['green-300']};
-        transition: color 0.2s;
-        cursor: pointer;
-      }
+      display: flex;
+      gap: 0.5rem;
     }
   }
 `;
