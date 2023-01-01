@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="Logo Repository" src="./public/assets/logo.svg" width="300px" />
+    <img alt="Logo Repository" src="./src/assets/logo.svg" width="300px" />
 </h1>
 
 <p align="center">
@@ -11,22 +11,33 @@
 </p>
 
 <p align="center">
- <img src="https://img.shields.io/static/v1?label=PRs&message=welcome&color=8047F8&labelColor=000000" alt="PRs welcome!" />
+ <img src="https://img.shields.io/static/v1?label=PRs&message=welcome&color=00B37E&labelColor=000000" alt="PRs welcome!" />
 
-  <img alt="License" src="https://img.shields.io/badge/Made%20by-Ruth%20Maria-8047F8">
+  <img alt="License" src="https://img.shields.io/badge/Made%20by-Ruth%20Maria-00B37E">
 
-  <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=8047F8&labelColor=000000">
+  <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=00B37E&labelColor=000000">
 </p>
 
 <br>
 
 ## :books: About
 
+An application to manage transactions, where you can:
+
+- Create transactions
+- Delete transactions
+- Edit transactions
+- Search for specific transactions
+- View all registered transactions
+- View the sum of total entries
+- View the sum of total outputs
+- View the total available
+
 <a id="execution"></a><br>
 
 ## :tv: Preview
 
-![video](./public/assets/video.gif)
+![video](./src/assets/video.gif)
 
 Access this layout in [Figma](<https://www.figma.com/file/YXhRS9SvRG7MuYnF3vI4OJ/DT-Money-(Community)?node-id=0%3A1&t=MYwGDj51Y3N4jDDy-0>).
 
