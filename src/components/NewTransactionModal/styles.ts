@@ -38,6 +38,14 @@ export const Content = styled(Dialog.Content)`
       &::placeholder {
         color: ${(props) => props.theme['gray-500']};
       }
+
+      -moz-appearance: textfield;
+      appearance: textfield;
+      ::-webkit-outer-spin-button,
+      ::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
     }
 
     button[type='submit'] {
