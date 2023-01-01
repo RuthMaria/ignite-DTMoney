@@ -18,6 +18,7 @@ import {
 import Pagination from '../../components/Pagination';
 import { api } from '../../lib/axios';
 import { RemoveTransactionModal } from '../../components/RemoveTransactionModal';
+import Tooltip from '../../components/Tooltip';
 
 export const Transactions: React.FC = () => {
   const [page, setPage] = useState(1);
@@ -82,16 +83,20 @@ export const Transactions: React.FC = () => {
                   </td>
                   <td>
                     <Dialog.Root>
-                      <Dialog.Trigger asChild>
-                        <Trash size={19} />
+                      <Dialog.Trigger>
+                        <Tooltip text="Remover">
+                          <Trash size={19} />
+                        </Tooltip>
                       </Dialog.Trigger>
 
                       <RemoveTransactionModal transaction={transaction} />
                     </Dialog.Root>
 
                     <Dialog.Root>
-                      <Dialog.Trigger asChild>
-                        <NotePencil size={19} />
+                      <Dialog.Trigger>
+                        <Tooltip text="Editar">
+                          <NotePencil size={19} />
+                        </Tooltip>
                       </Dialog.Trigger>
 
                       <NewTransactionModal transaction={transaction} />
