@@ -7,7 +7,7 @@ export const useSummary = () => {
     return context.transactions;
   });
 
-  // useMemo retorna um valor memorizado, só recalcula o valor se a sua dependência (transactions) mudar
+  // useMemo retorna um valor memorizado, só recalcula o valor se a sua dependência (transactions) mudar. É usado apenas em variáveis.
 
   const summary = useMemo(() => {
     return transactions.reduce(

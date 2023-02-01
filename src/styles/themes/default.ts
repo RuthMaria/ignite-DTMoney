@@ -18,3 +18,13 @@ export const defaultTheme = {
   'red-500': '#AB222E',
   'red-700': '#7A1921',
 } as const;
+
+/*
+Colocando o "as const" faz com que o objeto se transforme em uma constante. 
+Desse modo, ao selecionarmos uma cor aparecerá o nome dela e o seu respectivo hexadecimal.
+Assim : 'red-300': '#F75A68'
+Se não colocarmos o "as const" aparecerá assim: 'red-300': 'string'
+
+Dificultando quando formos comparar a cor selecionada com a do layout do figma, sendo necessário olhar este arquivo para comparação
+do hexadecimal. Do primeiro modo não tem essa necessidade, pois o hexadecimal da respectiva cor já aparecerá.
+*/

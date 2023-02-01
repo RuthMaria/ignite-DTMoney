@@ -1,6 +1,8 @@
 import React from 'react';
 import { CaretLeft, CaretRight } from 'phosphor-react';
+
 import { usePagination, DOTS } from '../../hooks/usePagination';
+
 import { Button, GroupButton, Span, ButtonCaret } from './styles';
 
 type PropsPagination = {

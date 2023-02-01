@@ -27,6 +27,6 @@ export const NewTransactionButton = styled.button`
 
   &:hover {
     background: ${(props) => props.theme['green-700']};
-    transition: background-color 0.2s;
+    transition: background-color 0.2s; // colocando o transition aqui no hover ao invés do elemento pai faz com que o efeito seja aplicado apenas quando o mouse está dentro do botão e não fora
   }
 `;

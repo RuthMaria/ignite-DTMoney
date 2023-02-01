@@ -1,11 +1,11 @@
 import React from 'react';
 import { useTheme } from 'styled-components'; // usado para aproveitar o tema da aplicação fora do styled-component, para poder ser usado nos componentes
 import { ArrowCircleDown, ArrowCircleUp, CurrencyDollar } from 'phosphor-react';
-import { useContext } from 'react';
-import { TransactionsContext } from '../../contexts/TransactionsContext';
-import { SummaryCard, SummaryContainer } from './styles';
-import { priceFormatter } from '../../utils/formatter';
+
 import { useSummary } from '../../hooks/useSummary';
+import { priceFormatter } from '../../utils/formatter';
+
+import { SummaryCard, SummaryContainer } from './styles';
 
 export const Summary: React.FC = () => {
   const theme = useTheme();

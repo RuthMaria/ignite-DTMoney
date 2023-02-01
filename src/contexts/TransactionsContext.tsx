@@ -1,5 +1,6 @@
 import { ReactNode, useCallback, useEffect, useState } from 'react';
 import { createContext } from 'use-context-selector';
+
 import { api } from '../lib/axios';
 
 interface Transaction {
@@ -41,9 +42,8 @@ export const TransactionsProvider = ({
   children,
 }: TransactionsProviderProps) => {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
-  const [hasQuery, setHasQuery] = useState(false);
-  // useCallback retorna uma função memorizada, só a recalcula se o seu array de dependências mudar
 
+  // useCallback retorna uma função memorizada, só a recalcula se o seu array de dependências mudar. Evita que a função seja recriada.
   const fetchTransactions = useCallback(
     async (query?: string, page?: number, limit?: number) => {
       const response = await api.get('transactions', {
@@ -80,6 +80,8 @@ export const TransactionsProvider = ({
       const response = await api.post('transactions', newTransaction);
 
       setTransactions((state) => [response.data, ...state]); // quando for atualizar um estado que dependa dos estados anteriores, usar um callback
+
+      fetchTransactions();
     },
     []
   );

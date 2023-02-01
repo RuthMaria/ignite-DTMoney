@@ -1,6 +1,7 @@
-import * as Dialog from '@radix-ui/react-dialog';
 import { X } from 'phosphor-react';
+import * as Dialog from '@radix-ui/react-dialog';
 import { useContextSelector } from 'use-context-selector';
+
 import { TransactionsContext } from '../../contexts/TransactionsContext';
 
 import {

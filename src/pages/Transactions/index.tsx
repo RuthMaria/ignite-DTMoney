@@ -52,7 +52,7 @@ export const Transactions: React.FC = () => {
     };
 
     loadingTransactions();
-  }, [page, totalTransaction, query]);
+  }, [page, totalTransaction, query, fetchTransactions]);
 
   const transactions = useContextSelector(TransactionsContext, (context) => {
     return context.transactions;
