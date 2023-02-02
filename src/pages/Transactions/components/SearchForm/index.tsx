@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import * as z from 'zod';
 import { useForm } from 'react-hook-form';
 import { MagnifyingGlass } from 'phosphor-react';
@@ -18,7 +18,7 @@ interface SearchFormProps {
   hasQuery: (query: string) => void;
 }
 
-export const SearchForm: React.FC<SearchFormProps> = ({ hasQuery }) => {
+const SearchFormComponent: React.FC<SearchFormProps> = ({ hasQuery }) => {
   const fetchTransactions = useContextSelector(
     TransactionsContext,
     (context) => {
@@ -56,3 +56,7 @@ export const SearchForm: React.FC<SearchFormProps> = ({ hasQuery }) => {
     </SearchFormContainer>
   );
 };
+
+// memo retorna um componente memorizado, só o renderiza se as suas dependências mudar. Evita que o componente seja recriado.
+
+export const SearchForm = memo(SearchFormComponent);
